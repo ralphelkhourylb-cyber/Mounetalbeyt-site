@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Mouna Al Bayt Al Loubnani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2F4F4F;
+            --secondary-green: #90EE90;
+            --accent-red: #A52A2A;
+            --background-color: #F8F8E9;
+            --text-color: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-name {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-green);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        nav ul { list-style: none; display: flex; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-green);
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { color: var(--accent-red); border-bottom: 3px solid var(--accent-red); }
+
+        /* --- Global Background Setup --- */
+        .page-bg {
+            background-image: url('logo.jpg'); 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 400px;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .page-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-color: rgba(248, 248, 233, 0.85);
+            z-index: 1;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 5;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: var(--primary-green);
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-red);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Accordion Styles --- */
+        .accordion {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--secondary-green);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 20px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .accordion-header:hover {
+            background: #3e6868;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: #fff;
+        }
+
+        .accordion-content p {
+            padding: 25px;
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .icon-plus {
+            font-size: 1.5em;
+            transition: transform 0.3s;
+        }
+
+        .active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        footer {
+            background-color: var(--primary-green);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media screen and (max-width: 768px) {
+            header .container { flex-direction: column; }
+            nav ul { margin-top: 15px; }
+            .page-bg { background-size: 250px; background-attachment: scroll; }
+            h2 { font-size: 2em; }
+        }
+		/* --- AJUSTEMENTS RESPONSIVE --- */
+
+/* Pour les tablettes et téléphones (écrans inférieurs à 992px) */
+@media screen and (max-width: 992px) {
+    .container {
+        width: 95%; /* On élargit un peu pour ne pas perdre d'espace */
+    }
+    h2 {
+        font-size: 2em; /* Titres un peu plus petits */
+    }
+}
+
+/* Pour les téléphones portables (écrans inférieurs à 768px) */
+@media screen and (max-width: 768px) {
+    /* 1. Menu de navigation en colonne */
+    header .container {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap; /* Permet aux liens de passer à la ligne si besoin */
+        justify-content: center;
+        gap: 10px;
+    }
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    /* 2. Adaptation du fond (Background) */
+    .section-bg-logo, .page-bg, .contact-section, .partners-section {
+        background-size: 200px; /* Logo plus petit en fond */
+        background-attachment: scroll; /* Plus fluide sur mobile que 'fixed' */
+    }
+
+    /* 3. Adaptation des cartes de contenu */
+    .content-card {
+        padding: 25px 15px; /* Moins d'espace interne */
+        margin: 10px auto;
+    }
+
+    /* 4. Grilles (Services, Partners, Stats) sur une seule colonne */
+    .services-grid, .partners-grid, .choice-grid, .stats-row {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        gap: 15px;
+    }
+
+    /* 5. Textes */
+    h1 {
+        font-size: 2.2em !important; /* Titre principal */
+    }
+    .story-text {
+        font-size: 1em;
+        text-align: left; /* Plus facile à lire sur petit écran */
+    }
+    
+    /* 6. Accordéons (Services) */
+    .accordion-header {
+        font-size: 1.1em;
+        padding: 15px;
+    }
+}
+
+/* Pour les très petits téléphones (écrans inférieurs à 480px) */
+@media screen and (max-width: 480px) {
+    nav ul li a {
+        font-size: 0.9em;
+    }
+    .stat-item {
+        width: 100%; /* Stats l'une sur l'autre */
+    }
+}
+    </style>
+</head>
+<body class="page-bg">
+
+    <header>
+        <nav class="container">
+            <div class="logo-name">مونة البيت اللبناني</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Our Services</a></li>
+                <li><a href="partners.html">Our Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container content-card">
+            <h2>Our Specialized Services</h2>
+            <p style="margin-bottom: 30px;">Discover the range of solutions we offer for families and businesses.</p>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Lebanese Preserves (Mouneh)
+                        <span class="icon-plus">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>At "Mounet Al Beyt Al Loubnani", we take pride in offering a premium selection of traditional Lebanese pickles and olives, crafted with care and authenticity. Our products are made from the finest natural ingredients, capturing the rich flavors and homemade essence passed down through generations. Whether you’re looking for tangy cucumbers, spicy turnips, or perfectly marinated olives, each jar delivers a taste of Lebanon’s culinary heritage with elegance and quality.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Food Packaging Supplies
+                        <span class="icon-plus">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>In addition to our traditional food products, we provide a wide range of essential packaging solutions tailored for the food industry. From durable plastic and cardboard containers to specialized sandwich wrapping and deli sheets, we ensure that your food remains fresh, secure, and professionally presented. Our packaging is designed for both functionality and aesthetic appeal, meeting the needs of restaurants, catering services, and retail shops.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Commercial Kitchen Solutions
+                        <span class="icon-plus">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>We are more than just a supplier; we are your partner in business. For restaurants and commercial kitchens, we offer comprehensive solutions that combine high-quality Lebanese mouneh with professional food-grade supplies. Our team is dedicated to supporting your operations with reliable delivery, competitive wholesale pricing, and a commitment to excellence, helping you bring authentic flavors to your customers with ease.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mouna Al Bayt Al Loubnani. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const content = header.nextElementSibling;
+            
+            // Toggle active class for the plus sign rotation
+            item.classList.toggle('active');
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                // Close other open items (optional, remove if you want multiple open)
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+    </script>
+
+</body>
+</html>
